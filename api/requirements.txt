@@ -1,0 +1,16 @@
+fastapi
+python-multipart
+uvicorn[standard]
+pillow
+opencv-python
+pytesseract
+paddleocr
+easyocr
+transformers
+torch
+kraken[pdf]
+docling
+sumy
+keybert
+yake
+google-generativeai

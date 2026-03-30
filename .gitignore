@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+*.log
+coverage/
+.vscode/
+__pycache__/
+*.pyc
+*.pth
+models/
+api/models/
+.venv/
+api/.venv/
+.env.local
