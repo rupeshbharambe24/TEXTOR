@@ -14,3 +14,6 @@ sumy
 keybert
 yake
 google-generativeai
+python-dotenv
+requests
+tqdm
