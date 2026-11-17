@@ -14,6 +14,7 @@
   <img src="https://img.shields.io/badge/PaddleOCR-0062B8?style=flat-square" />
   <img src="https://img.shields.io/badge/TrOCR-Handwriting-EE4C2C?style=flat-square" />
   <img src="https://img.shields.io/badge/Gemini-AI%20Correction-4285F4?style=flat-square&logo=google&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" />
 </p>
 
 ---
@@ -67,15 +68,20 @@ TEXTOR/
 │   │   └── settings.py     # Configuration
 │   ├── scripts/
 │   │   └── fetch_models.py # Download model weights
+│   ├── .env.example        # Gemini / Kraken / Tesseract / CORS settings
 │   └── requirements.txt
 ├── app/                    # React frontend
 │   ├── src/
 │   │   ├── components/     # UI components
 │   │   ├── pages/          # Route pages
-│   │   └── hooks/          # Custom hooks
+│   │   ├── hooks/          # Custom hooks
+│   │   └── lib/            # API client, model/language options
+│   ├── .env.example        # VITE_API_URL
 │   └── package.json
 └── notebooks/              # Research & experiments
     ├── trocr.ipynb         # TrOCR handwriting recognition
+    ├── TROCRN.ipynb        # TrOCR experiments (variant)
+    ├── Donut.ipynb         # Donut (OCR-free document understanding) experiments
     └── doctors-handwritten-prescription.ipynb
 ```
 
@@ -87,6 +93,8 @@ cd api
 python -m venv .venv
 source .venv/bin/activate    # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+cp .env.example .env         # optional: GEMINI_API_KEY, model paths, CORS
+python scripts/fetch_models.py   # optional: pre-download TrOCR/EasyOCR/Tesseract data into models/
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -94,7 +102,12 @@ uvicorn app.main:app --reload --port 8000
 ```bash
 cd app
 npm install
+cp .env.example .env         # optional: defaults to http://localhost:8000
 npm run dev
 ```
 
-API docs at `http://localhost:8000/docs`. Frontend at `http://localhost:5173`.
+API docs at `http://localhost:8000/docs`. Frontend at `http://localhost:8080`.
+
+## License
+
+Released under the [MIT License](LICENSE).
